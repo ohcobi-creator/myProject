@@ -1,0 +1,54 @@
+# Project configuration for the warranty-analysis tool.
+# Declares Python dependencies and tooling settings for the analysis pipeline.
+[project]
+name = "warranty-analysis"
+version = "0.1.0"
+description = "Warranty data analysis and root-cause investigation tool (English-only, Claude API + web search)"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    # Core data stack
+    "pandas>=2.1",
+    "numpy>=1.26",
+    "openpyxl>=3.1",
+    "pyarrow>=15.0",
+    # Statistics & ML (Step 2: significance tests + regression)
+    "scipy>=1.11",
+    "statsmodels>=0.14",
+    "scikit-learn>=1.4",
+    # Visualization
+    "matplotlib>=3.8",
+    "seaborn>=0.13",
+    "plotly>=5.18",
+    # LLM + external search
+    "anthropic>=0.40",
+    # Validation / utilities
+    "pydantic>=2.5",
+    "tenacity>=8.2",
+    "python-dotenv>=1.0",
+    "PyYAML>=6.0",
+    "tqdm>=4.66",
+    "ipywidgets>=8.1",
+    # Notebook
+    "jupyterlab>=4.0",
+    "ipykernel>=6.29",
+    # Optional PDF briefing
+    "reportlab>=4.0",
+]
+
+[project.optional-dependencies]
+survival = ["lifelines>=0.27"]  # Optional Cox PH model in Step 2c
+dev = ["pytest>=7.4", "ruff>=0.1", "black>=24.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.black]
+line-length = 100
+
+[tool.ruff]
+line-length = 100

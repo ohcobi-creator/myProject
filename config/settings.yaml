@@ -1,0 +1,45 @@
+# Runtime settings for the warranty-analysis pipeline.
+# All values are English-only and consumed by src/warranty modules.
+
+# --- Claude API ---
+anthropic:
+  default_model: "claude-sonnet-4-6"      # Per-row NLP steps (4,5,6,7)
+  heavy_model: "claude-opus-4-6"          # Heavy reasoning (3,8,10)
+  max_output_tokens: 2048
+  concurrency: 5                          # concurrent.futures workers for per-row calls
+  batch_threshold_rows: 500               # Switch to Message Batches API above this
+  retries: 5                              # tenacity exponential backoff
+  web_search_max_uses: 3                  # per LLM call with web_search server tool
+
+# --- Statistics ---
+stats:
+  alpha: 0.05                             # 95% confidence level across all hypothesis tests
+  outlier_iqr_multiplier: 1.5
+  outlier_zscore_threshold: 3.5
+  vif_threshold: 10.0                     # Multicollinearity cutoff for regression inputs
+  high_cardinality_pct: 0.9               # Drop categorical X if >90% unique
+  high_missing_pct: 0.5                   # Drop column if >50% NaN
+  train_test_split: 0.2
+  cv_folds: 5
+
+# --- Symptom binning (Step 4) ---
+symptom:
+  unknown_label: "UNKNOWN"
+  long_comment_char_limit: 4000
+  long_comment_keep: 2000                 # Head + tail kept when truncating
+
+# --- DTC extraction (Step 5) ---
+dtc:
+  regex: "\\b[PCBU][0-9A-Fa-f]{4}\\b"
+  enable_typo_correction: true            # O->0, l->1 before matching
+
+# --- Connected vehicle (Step 9) ---
+connected_vehicle:
+  vin_join_window_days: 30
+
+# --- Output ---
+output:
+  chart_dpi: 150
+  summary_sheet_name: "Summary"
+  mask_vin: false
+  checkpoint_enabled: true

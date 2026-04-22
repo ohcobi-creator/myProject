@@ -1,0 +1,68 @@
+# Standard automotive system taxonomy used for symptom binning (Step 4).
+# 13 canonical categories. Every technician comment is classified into exactly one.
+# The LLM receives this taxonomy cached in the system prompt.
+categories:
+  - name: "Powertrain/Engine"
+    definition: "Internal combustion engine, hybrid powertrain, oils, ignition, fuel injectors, timing, turbo."
+    keywords: ["engine", "misfire", "knock", "rough idle", "oil leak", "ignition coil", "spark plug", "turbo", "injector"]
+    examples: ["P0300 random misfire", "oil leak at valve cover"]
+
+  - name: "Transmission"
+    definition: "Automatic/manual/CVT/DCT transmissions, torque converter, shift control, transfer case."
+    keywords: ["shifting", "slipping", "torque converter", "transmission fluid", "CVT", "DCT", "gear", "shudder"]
+    examples: ["harsh shift 2-3", "transmission slipping under load"]
+
+  - name: "Brake"
+    definition: "Service brakes, ABS, parking brake, brake fluid, calipers, rotors, pads, booster."
+    keywords: ["brake", "ABS", "pedal", "pulsation", "squeal", "rotor", "pad", "caliper"]
+    examples: ["brake pedal spongy", "ABS light on, C0035"]
+
+  - name: "Electrical"
+    definition: "Battery, alternator, wiring, fuses, lighting, power windows/locks, body-control modules not otherwise classified."
+    keywords: ["battery", "alternator", "short", "open circuit", "fuse", "wiring", "BCM", "no crank"]
+    examples: ["dead battery after 2 days", "B1000 BCM fault"]
+
+  - name: "HVAC"
+    definition: "Heating, ventilation, A/C — compressor, refrigerant, blower, cabin filter, controls."
+    keywords: ["A/C", "AC", "refrigerant", "blower", "heater", "climate", "compressor", "defrost"]
+    examples: ["no cold air from vents", "blower motor inop"]
+
+  - name: "Body"
+    definition: "Exterior/interior body, doors, glass, mirrors, seats, trim, paint, leaks not related to powertrain."
+    keywords: ["door", "window", "seat", "trim", "paint", "water leak", "mirror", "rattle (body)"]
+    examples: ["door handle broken", "water leak at windshield"]
+
+  - name: "Chassis/Steering"
+    definition: "Suspension, steering rack, power steering, wheel bearings, alignment, tires (when workshop-related)."
+    keywords: ["steering", "rack", "suspension", "strut", "shock", "wheel bearing", "alignment", "ball joint"]
+    examples: ["pull to right", "clunk over bumps"]
+
+  - name: "ADAS"
+    definition: "Advanced driver-assist systems: adaptive cruise, lane keeping, AEB, blind-spot, cameras, radar."
+    keywords: ["ADAS", "lane keep", "adaptive cruise", "ACC", "AEB", "blind spot", "radar", "camera calibration"]
+    examples: ["lane keep disengages", "forward-collision warning false alert"]
+
+  - name: "Infotainment"
+    definition: "Head unit, display, audio, navigation, Bluetooth, smartphone integration, voice."
+    keywords: ["infotainment", "head unit", "display", "Bluetooth", "CarPlay", "Android Auto", "navigation", "audio"]
+    examples: ["head unit reboots", "Bluetooth won't pair"]
+
+  - name: "NVH"
+    definition: "Noise/vibration/harshness complaints that are not clearly attributable to one subsystem."
+    keywords: ["noise", "vibration", "rattle", "buzz", "hum", "NVH"]
+    examples: ["highway vibration 65 mph", "unidentified rattle dash"]
+
+  - name: "Fuel"
+    definition: "Fuel tank, pump, lines, filler neck, EVAP system, level sensor."
+    keywords: ["fuel pump", "fuel tank", "EVAP", "gas cap", "fuel gauge", "fuel filler"]
+    examples: ["EVAP leak P0442", "fuel gauge stuck"]
+
+  - name: "Exhaust/Emissions"
+    definition: "Exhaust manifold, catalytic converter, DPF, SCR, O2/lambda, NOx sensors, emissions DTCs."
+    keywords: ["catalytic", "O2 sensor", "DPF", "SCR", "NOx", "emission", "muffler", "exhaust leak"]
+    examples: ["P0420 catalyst efficiency", "NOx sensor fault"]
+
+  - name: "Cooling"
+    definition: "Coolant system, radiator, water pump, thermostat, cooling fans, intercooler."
+    keywords: ["coolant", "overheat", "water pump", "thermostat", "radiator", "fan", "cooling"]
+    examples: ["overheat in traffic", "coolant leak water pump"]

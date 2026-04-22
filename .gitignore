@@ -1,0 +1,28 @@
+# Secrets and environment
+.env
+.env.local
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+build/
+dist/
+
+# Data files — never commit warranty or connected-vehicle data
+data/input/*
+data/connected/*
+data/output/*
+!data/input/.gitkeep
+!data/connected/.gitkeep
+!data/output/.gitkeep
+!data/output/charts/.gitkeep
+
+# Notebook execution artifacts
+*.nbconvert.ipynb
+
+# OS
+.DS_Store

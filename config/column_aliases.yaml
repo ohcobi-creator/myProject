@@ -1,0 +1,125 @@
+# Column-name aliases for auto-detecting the semantic role of each column
+# in the user-supplied warranty Excel file. All entries are English.
+# Matching is case-insensitive and ignores underscores/dashes/spaces.
+# If auto-detection fails, the notebook falls back to an ipywidgets dropdown.
+
+vin:
+  - vin
+  - vin_no
+  - vin_number
+  - chassis_number
+  - chassis_no
+
+claim_id:
+  - claim_id
+  - claim_no
+  - warranty_claim_id
+  - ro_number
+  - repair_order_no
+
+repair_date:
+  - repair_date
+  - service_date
+  - ro_date
+  - claim_date
+  - date
+
+in_service_date:
+  - in_service_date
+  - sold_date
+  - delivery_date
+  - warranty_start_date
+
+make:
+  - make
+  - manufacturer
+  - brand
+
+model:
+  - model
+  - vehicle_model
+  - car_model
+
+model_year:
+  - model_year
+  - my
+  - year
+
+trim:
+  - trim
+  - trim_level
+
+engine_type:
+  - engine
+  - engine_type
+  - powertrain_type
+
+transmission_type:
+  - transmission
+  - transmission_type
+  - trans_type
+
+drivetrain:
+  - drivetrain
+  - drive_type
+  - awd_type
+
+plant_code:
+  - plant_code
+  - assembly_plant
+  - plant
+
+production_date:
+  - production_date
+  - build_date
+  - mfg_date
+
+mileage_at_repair:
+  - mileage
+  - odometer
+  - mileage_at_repair
+  - km
+  - mi
+
+region:
+  - region
+  - market
+  - country
+  - state
+
+dealer_id:
+  - dealer_id
+  - dealer_code
+  - dealer
+
+customer_complaint:
+  - customer_complaint
+  - complaint
+  - customer_concern
+  - concern
+  - reported_issue
+
+tech_comment:
+  - tech_comment
+  - technician_comment
+  - technician_notes
+  - cause_correction
+  - repair_notes
+  - technician_narrative
+
+replaced_part_number:
+  - replaced_part_number
+  - part_number
+  - part_no
+  - replaced_part
+
+repair_cost:
+  - repair_cost
+  - total_cost
+  - claim_amount
+  - cost
+
+labor_hours:
+  - labor_hours
+  - labor_time
+  - hours

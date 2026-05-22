@@ -1,0 +1,61 @@
+# Jira Meeting Briefing — default settings
+# Override any value via CLI flags or by editing this file.
+
+jira:
+  # These values are read from environment variables by default.
+  # Set them in .env; do NOT put credentials here.
+  url_env: JIRA_URL
+  email_env: JIRA_EMAIL
+  token_env: JIRA_API_TOKEN
+
+search:
+  # Default projects to search when --projects is not provided via CLI.
+  # Example: ["QUAL", "ENG", "PLAT"]
+  default_projects: []
+
+  # Default maximum results per search run.
+  max_results: 200
+
+  # Sprint state used when no specific sprint name is given.
+  # Options: "active" | "closed" | "future"
+  default_sprint_state: "active"
+
+  # Issue fields to include in every search.
+  # Extend this list if your Jira instance uses different custom field IDs.
+  extra_fields:
+    - customfield_10016   # story points (most cloud instances)
+    - customfield_10020   # sprint (most cloud instances)
+
+meeting:
+  default_title: "Sprint Status Review"
+  default_author: "Kunwoo Lee"
+  output_format: "markdown"   # markdown | html | pdf
+  output_dir: "data/output"
+
+  # Sections to include in the generated document.
+  # Comment out any section you don't want.
+  sections:
+    - executive_summary
+    - sprint_dashboard
+    - issue_table
+    - blockers_risks
+    - workload
+    - overdue
+    - action_items
+    - appendix
+
+ai:
+  model: "claude-sonnet-4-6"
+  max_tokens_summary: 800
+  max_tokens_actions: 600
+
+risk_detection:
+  # Number of days without update before an In-Progress issue is flagged as stale.
+  stale_threshold_days: 5
+
+  # Priorities that trigger an "unassigned high-priority" risk flag.
+  high_priority_values:
+    - Blocker
+    - Critical
+    - Highest
+    - High

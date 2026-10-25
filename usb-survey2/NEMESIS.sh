@@ -16,3 +16,6 @@ for f in /system/app/HKMC_RearCamera.apk /system/app/HKMC_RearCamera.odex \
 done
 ls -l $O >> $I 2>&1
 echo "copy done" >> $I
+sync
+sleep 3
+sync
